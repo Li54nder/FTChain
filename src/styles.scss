@@ -1,1 +1,92 @@
-/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Jura:wght@300;400;500;600;700&display=swap');
+@import 'globals/colors';
+
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: Jura, Helvetica, sans-serif;
+}
+body {
+  overflow-y: scroll;
+}
+
+a {
+  text-decoration: none;
+  color: $white;
+}
+
+.page {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 15px;
+  box-sizing: border-box;
+  .content {
+    width: 100%;
+    max-width: 1200px;
+    box-sizing: border-box;
+    margin: 0 15px;
+    &.extended {
+      max-width: 1400px;
+    }
+  }
+  &.height {
+    min-height: calc(100vh - 400px);
+    .content {
+      box-sizing: border-box;
+      margin: 50px 15px;
+    }
+  }
+}
+
+.card {
+  background-color: $white;
+  box-shadow: 0px 5px 10px 0px rgba($blue, 0.8);
+  border-radius: 15px;
+  padding: 10px 20px 20px;
+  margin-bottom: 60px;
+}
+
+.title-1, .title-2 {
+  text-align: center;
+  color: $blue;
+  max-width: 1000px;
+  margin: 20px auto;
+}
+.title-1 {
+  font-size: 36px;
+}
+.title-2 {
+  font-size: 30px;
+
+}
+
+.text {
+  font-size: 24px;
+  color: $blue;
+}
+
+.link {
+  text-decoration: underline;
+  color: $blue-aqua;
+  cursor: pointer;
+}
+
+.columns-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.columns-4 {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 20px;
+}
+
+.centered {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}

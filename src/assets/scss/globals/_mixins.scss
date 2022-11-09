@@ -1,0 +1,72 @@
+@mixin breakpoint($point) {
+  @if $point == text-s {
+    @media (max-width: 2100px) and (min-width: 1200px) {
+      @content;
+    }
+  }
+  @else if $point == text-m {
+    @media (max-width: 3000px) and (min-width: 2100px) {
+      @content;
+    }
+  }
+  @else if $point == text-l {
+    @media (max-width: 3700px) and (min-width: 3000px) {
+      @content;
+    }
+  }
+  @else if $point == text-xl {
+    @media (max-width: 6000px) and (min-width: 3700px) {
+      @content;
+    }
+  }
+  @else if $point == bigtop {
+    @media (max-width: 1550px) {
+      @content;
+    }
+  }
+  @else if $point == laptop {
+    @media (max-width: 1200px) {
+      @content;
+    }
+  }
+  @else if $point == laptoponly {
+    @media (max-width: 1200px) and (min-width: 992px) {
+      @content;
+    }
+  }
+  @else if $point == smalltop {
+    @media (max-width: 1024px) {
+      @content;
+    }
+  }
+  @else if $point == tablet {
+    @media (max-width: 992px) {
+      @content;
+    }
+  }
+  @else if $point == tabletonly {
+    @media (max-width: 992px) and (min-width: 768px) {
+      @content;
+    }
+  }
+  @else if $point == phablet {
+    @media (max-width: 768px) {
+      @content;
+    }
+  }
+  @else if $point == phabletonly {
+    @media (max-width: 768px) and (min-width: 576px) {
+      @content;
+    }
+  }
+  @else if $point == mobile {
+    @media (max-width: 576px) {
+      @content;
+    }
+  }
+  @else {
+    @media (max-width: $point) {
+      @content;
+    }
+  }
+}

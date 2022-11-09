@@ -1,0 +1,10 @@
+{
+  "/echo": {
+    "target": "http://34.83.215.154:8090",
+    "secure": true,
+    "changeOrigin": true,
+    "pathRewrite": {
+      "^/echo": ""
+    }
+  }
+}

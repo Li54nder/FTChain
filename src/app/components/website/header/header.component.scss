@@ -1,0 +1,37 @@
+@import 'core';
+
+.header {
+  background-color: $blue;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  .content {
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    .logo {
+      h1 {
+        font-size: 36px;
+        color: $white;
+      }
+    }
+    .nav {
+      display: flex;
+      gap: 20px;
+      a {
+        font-size: 24px;
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+}
+
+.active {
+  color: $blue-aqua;
+  h1 {
+    color: $blue-aqua !important;
+  }
+}

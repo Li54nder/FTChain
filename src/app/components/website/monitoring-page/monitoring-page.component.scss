@@ -1,0 +1,131 @@
+@import 'core';
+
+.text {
+  text-align: justify;
+  margin-bottom: 40px;
+}
+
+.flags {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  .flag {
+    width: 100%;
+    background-color: $blue-light-light-light;
+    padding: 5px 15px;
+    border-radius: 50px;
+    box-sizing: border-box;
+    color: $blue;
+    font-weight: 500;
+    text-align: center;
+  }
+}
+
+.table {
+  display: flex;
+  flex-direction: column;
+  color: $blue;
+  font-weight: 500;
+  .text {
+    margin: 0;
+  }
+  .row {
+    display: flex;
+    border-bottom: 1px solid $blue;
+    background-color: $blue-light-light-light;
+    &:first-child {
+      border-bottom: 0;
+      background-color: transparent;
+    }
+    &:last-child {
+      border-bottom: 0;
+    }
+    &.gap {
+      gap: 15px;
+    }
+
+    .text {
+      flex: 1;
+      padding: 5px 10px;
+    }
+
+    .actor-data {
+      padding: 10px;
+      flex: 1;
+      display: flex;
+      align-items: center;
+    }
+
+    .actor-devices {
+      flex: 2;
+      display: flex;
+      flex-direction: column;;
+      background-color: $blue-light-light;
+
+      .actor-device {
+        display: flex;
+        border-bottom: 1px solid $blue;
+        &:last-child {
+          border-bottom: 0;
+        }
+
+        .device-data {
+          padding: 10px;
+          flex: 1;
+          display: flex;
+          align-items: center;
+        }
+
+        .device-sensors {
+          flex: 1;
+          display: flex;
+          flex-direction: column;
+          background-color: $blue-light;
+
+          .device-sensor {
+            padding: 10px;
+            border-bottom: 1px solid $blue;
+            &:last-child {
+              border-bottom: 0;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.diagram {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 40px;
+  img {
+    height: 450px;
+  }
+  p {
+    font-style: italic;
+  }
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  .item {
+    display: flex;
+    border-bottom: 1px solid $blue;
+    &:last-child {
+      border: 0;
+    }
+
+    .text {
+      margin: 0;
+    }
+
+    & > div {
+      flex: 1;
+      padding: 10px;
+      color: $blue;
+    }
+  }
+}

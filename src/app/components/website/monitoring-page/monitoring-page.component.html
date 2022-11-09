@@ -1,0 +1,151 @@
+<div class="page height">
+  <div class="content">
+
+    <h1 class="title-1">
+      Current status of FT-Chain network
+    </h1>
+
+    <p class="text">The network that is currently active is used for experiment purposes. It is up and running in VizLore Labs laboratory. Our devices are currently using PhasmaFood datasets for training data, so we can have more realistic information about food fraud, quality and spoilage of the food in our food supply chain use case.</p>
+
+    <div class="columns-4">
+      <div class="card">
+        <h1 class="title-2">Peers</h1>
+        <div class="centered" *ngIf="explorerLoadings.includes(true)">
+          <app-spinner></app-spinner>
+        </div>
+        <div class="flags" *ngIf="!explorerLoadings.includes(true)">
+          <div class="flag" *ngFor="let item of peers">
+            {{item}}
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <h1 class="title-2">Orgs</h1>
+        <div class="centered" *ngIf="explorerLoadings.includes(true)">
+          <app-spinner></app-spinner>
+        </div>
+        <div class="flags" *ngIf="!explorerLoadings.includes(true)">
+          <div class="flag" *ngFor="let item of orgs">
+            {{item}}
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <h1 class="title-2">Channels</h1>
+        <div class="centered" *ngIf="explorerLoadings.includes(true)">
+          <app-spinner></app-spinner>
+        </div>
+        <div class="flags" *ngIf="!explorerLoadings.includes(true)">
+          <div class="flag" *ngFor="let item of channels">
+            {{item}}
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <h1 class="title-2">Chaincodes</h1>
+        <div class="centered" *ngIf="explorerLoadings.includes(true)">
+          <app-spinner></app-spinner>
+        </div>
+        <div class="flags" *ngIf="!explorerLoadings.includes(true)">
+          <div class="flag" *ngFor="let item of chaincodes">
+            {{item}}
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h1 class="title-2">Supply Chain State</h1>
+
+      <div class="centered" *ngIf="networkLoadingsOne[0]">
+        <app-spinner></app-spinner>
+      </div>
+
+      <div class="table" *ngIf="!networkLoadingsOne[0]">
+        <div class="row gap">
+          <div class="text">SC Actor</div>
+          <div class="text">Device</div>
+          <div class="text">Sensor</div>
+        </div>
+        <div class="row" *ngFor="let actor of actors">
+          <div class="actor-data">
+            {{actor}}
+          </div>
+
+          <div class="actor-devices center" *ngIf="networkLoadingsOne[1]">
+            <app-spinner></app-spinner>
+          </div>
+          <div class="actor-devices" *ngIf="!networkLoadingsOne[1]">
+            <div class="actor-device" *ngFor="let device of devices[actor]">
+              <div class="device-data">
+                {{device.name}}
+              </div>
+
+              <div class="device-sensors center" *ngIf="networkLoadingsOne[2]">
+                <app-spinner></app-spinner>
+              </div>
+              <div class="device-sensors" *ngIf="!networkLoadingsOne[2]">
+                <div class="device-sensor" *ngFor="let sensor of sensors[device.deviceId]">
+                  {{sensor.name}} ({{sensor.desc}})
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="card">
+      <h1 class="title-2">Supply Chain Diagrams</h1>
+
+      <div class="diagram">
+        <img src="assets/img/diagram1.png" alt="Diagram 1">
+        <p class="text">Model Flow Diagram</p>
+      </div>
+      <div class="diagram">
+        <img src="assets/img/diagram2.png" alt="Diagram 1">
+        <p class="text">Organisations & Channels Diagram</p>
+      </div>
+    </div>
+
+    <div class="columns-2">
+      <div class="card">
+        <h1 class="title-2">Local Models (last 5)</h1>
+
+        <div class="centered" *ngIf="networkLoadingsTwo.includes(true)">
+          <app-spinner></app-spinner>
+        </div>
+
+        <div class="list" *ngIf="!networkLoadingsTwo.includes(true)">
+          <div class="item">
+            <div class="text">Crated At</div>
+            <div class="text">CID</div>
+          </div>
+          <div class="item" *ngFor="let model of localModels">
+            <div>{{model.createdAt | date: 'medium'}}</div>
+            <div>{{model.CID}}</div>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <h1 class="title-2">Global Models (last 5)</h1>
+
+        <div class="centered" *ngIf="networkLoadingsTwo.includes(true)">
+          <app-spinner></app-spinner>
+        </div>
+
+        <div class="list" *ngIf="!networkLoadingsTwo.includes(true)">
+          <div class="item">
+            <div class="text">Crated At</div>
+            <div class="text">CID</div>
+          </div>
+          <div class="item" *ngFor="let model of globalModels">
+            <div>{{model.createdAt | date: 'medium'}}</div>
+            <div>{{model.CID}}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
